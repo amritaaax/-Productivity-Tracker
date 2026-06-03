@@ -3,6 +3,16 @@
 > A full-stack productivity tracking system built with MERN Stack + Chrome Extension that monitors your web usage, generates smart insights, and helps you stay focused.
 
 ---
+<img width="537" height="773" alt="image" src="https://github.com/user-attachments/assets/f27a08cc-f646-41e5-839b-2d276b5e0ebe" />
+<img width="523" height="751" alt="image" src="https://github.com/user-attachments/assets/c9983a98-47ab-49cf-bd6b-5a861a8ff8fd" />
+<img width="543" height="795" alt="image" src="https://github.com/user-attachments/assets/314dbc75-f6d4-49c7-9916-258659127733" />
+<img width="539" height="793" alt="image" src="https://github.com/user-attachments/assets/9b68247a-09ee-4588-9bc1-23bc64e3ec61" />
+<img width="534" height="752" alt="image" src="https://github.com/user-attachments/assets/738990b4-7486-4c8a-9770-f86f16d1247c" />  <img width="567" height="802" alt="image" src="https://github.com/user-attachments/assets/fd500e02-f9ed-454d-9a37-d721d7f85b12" />   <img width="541" height="787" alt="image" src="https://github.com/user-attachments/assets/0f9967e5-1b74-496b-b9e0-bf3f80960df7" />
+<img width="469" height="799" alt="image" src="https://github.com/user-attachments/assets/bab0d740-4782-4817-ad14-ea6904a73119" /><img width="505" height="769" alt="image" src="https://github.com/user-attachments/assets/96bc848a-5bef-48b2-beba-3d5ac6b7ae42" />
+
+
+
+
 
 ## 👩‍💻 Developer
 
