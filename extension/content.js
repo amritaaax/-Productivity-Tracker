@@ -1,9 +1,30 @@
 let startTime = Date.now();
-let hostname = window.location.hostname;
-console.log("Extension started on:", hostname);
+let hostname = window.location.hostname.replace(/^www\./, "");
 
-window.addEventListener("beforeunload", () => {
+function sendDuration() {
   const duration = Date.now() - startTime;
-  console.log("⏱️ Sending:", hostname, duration);
-  chrome.runtime.sendMessage({ hostname, duration });
+  if (duration > 1000 && hostname && hostname !== "newtab") {
+    try {
+      chrome.runtime.sendMessage({ hostname, duration });
+    } catch (e) {
+      // Extension context invalidated - ignore
+    }
+  }
+  startTime = Date.now();
+}
+
+window.addEventListener("beforeunload", sendDuration);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    sendDuration();
+  } else {
+    startTime = Date.now();
+  }
 });
+
+setInterval(() => {
+  if (!document.hidden) {
+    sendDuration();
+  }
+}, 30000);

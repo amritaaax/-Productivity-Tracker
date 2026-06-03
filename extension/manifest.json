@@ -1,13 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Productivity Tracker",
-  "description": "Tracks and improves productivity.",
-  "version": "1.0",
-  "permissions": ["tabs", "storage", "webRequest", "scripting"],
+  "version": "2.0",
+  "description": "Track and visualize your web usage with smart insights.",
+  "permissions": ["tabs", "storage", "scripting", "notifications", "idle", "alarms"],
   "host_permissions": ["<all_urls>"],
-  "background": {
-    "service_worker": "background.js"
-  },
+  "background": { "service_worker": "background.js" },
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
@@ -17,5 +15,10 @@
       "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }

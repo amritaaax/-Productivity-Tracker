@@ -3,8 +3,13 @@
   "name": "Productivity Tracker",
   "version": "1.0",
   "description": "Track and visualize your web usage.",
-  "permissions": ["tabs", "storage", "scripting"],
-  "host_permissions": ["<all_urls>"],
+"permissions": [
+  "tabs",
+  "storage",
+  "webRequest",
+  "scripting",
+  "notifications"
+]  "host_permissions": ["<all_urls>"],
   "background": { "service_worker": "background.js" },
   "action": {
     "default_popup": "index.html",

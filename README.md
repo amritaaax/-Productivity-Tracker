@@ -1,124 +1,160 @@
-# 🧠 Productivity Tracker – Chrome Extension with Dashboard
-```bash
+# 🎯 Productivity Tracker
 
-"COMPANY" : CODTECH IT SOLUTIONS
-"NAME" : KASHISH KUMARI
-"INTERN ID" : CT06DF642
-"DOMAIN" : MERN STACK WEB DEVELOPMENT
-"DURATION" : 6 WEEKS
-"MENTOR" : Neela Santhosh Kumar
+> A full-stack productivity tracking system built with MERN Stack + Chrome Extension that monitors your web usage, generates smart insights, and helps you stay focused.
 
-```
 ---
-A Chrome extension that **tracks the time you spend on different websites** throughout the day, stores it on a backend, and shows beautiful charts (Pie & Bar) on a dashboard using React and Chart.js.
+
+## 👩‍💻 Developer
+
+**Made by Amrita Thakur**
+Internship Project 2026
+Full Stack Developer — MERN + Chrome Extension
+
+---
+
+## 🚀 Features
+
+### 📊 Dashboard
+- Real-time website usage tracking
+- Productivity Score (0-100)
+- Total time, Productive time, Distracting time
+- Top 5 most visited websites
+- Most productive and most distracting site
+
+### 🔔 Smart Notifications
+- ⚠️ 20 min warning on social media
+- 🚨 30 min excessive usage alert
+- 🔒 40 min focus mode recommendation
+- Uses Chrome Notifications API
+
+### 🎯 Focus Mode
+- Toggle Focus Mode ON/OFF
+- Aggressive warnings when enabled
+- Helps you stay on task
+
+### 📅 Weekly Reports
+- 7-day productivity trend chart
+- Weekly top sites
+- Productive vs Distracting comparison
+
+### 💡 Smart Insights
+- Daily personalized insights
+- Smart recommendations
+- Achievement badges
+- Daily streaks system
+
+### 🏆 Achievements
+- 🔥 3-Day Streak
+- ⚡ 7-Day Streak
+- 🏆 30-Day Legend
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React.js, Chart.js |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas |
+| Extension | Chrome Extension Manifest V3 |
+| Charts | Chart.js, React-Chartjs-2 |
 
 ---
 
 ## 📁 Project Structure
-```bash
-productivity-extension/
-├── client/ # React dashboard
-│ ├── public/ # Static assets (favicon, manifest, etc.)
-│ ├── src/ # React components (App.js, charts, etc.)
-│ ├── build/ # Production-ready files (after npm run build)
-│ └── package.json # React dependencies
-│
-├── server/ # Node.js backend with Express + MongoDB
-│ ├── routes/ # API endpoints (track user time)
-│ └── server.js # Main backend file
-│
-├── extension/ # Chrome extension files
-│ ├── background.js # Background tracking logic
-│ ├── content.js # Page-level hostname capture
-│ ├── index.html # Popup UI (chart embedded)
-│ ├── popup.js # Chart rendering for extension
-│ └── manifest.json # Chrome extension config
 
-```
----
-
-## ⚙️ Features
-
-- ✅ Tracks time per hostname (e.g. `youtube.com`)
-- ✅ Sends data from extension to backend
-- ✅ Stores time data in MongoDB
-- ✅ Real-time Pie & Bar charts using Chart.js
-- ✅ Normalizes hostname (`www.` removed)
-- ✅ Excludes `localhost` and shows `h m s` formatted durations
-- ✅ Toggle dark/light mode
-- ✅ Weekly vs Today breakdown
-- ✅ React DevTools compatible
+Productivity-Tracker/
+├── client/                 # React Dashboard
+│   ├── src/
+│   │   ├── App.js         # Main dashboard
+│   │   └── App.css        # Modern UI styles
+│   └── public/
+├── extension/              # Chrome Extension
+│   ├── background.js      # Service worker
+│   ├── content.js         # Tab tracker
+│   ├── manifest.json      # Extension config
+│   └── index.html         # Popup UI
+└── server/                 # Node.js Backend
+    ├── models/
+    │   └── UserData.js    # MongoDB schema
+    ├── routes/
+    │   └── dataRoutes.js  # API routes
+    └── app.js             # Express server
 
 ---
 
-## 🧪 Technologies Used
+## ⚙️ Setup and Installation
 
-| Layer         | Tech                          |
-|--------------|-------------------------------|
-| Frontend      | React.js, Chart.js            |
-| Backend       | Node.js, Express.js, MongoDB  |
-| Extension     | JavaScript, Chrome APIs       |
-| Charts        | react-chartjs-2 + Chart.js    |
+### Prerequisites
+- Node.js installed
+- MongoDB Atlas account
+- Google Chrome browser
 
----
+### 1. Clone Repository
+git clone https://github.com/yourusername/productivity-tracker.git
+cd productivity-tracker
 
-## 🚀 How to Run
-
-### 🧩 1. Run Backend Server (Express + MongoDB)
-
-```bash
+### 2. Setup Server
 cd server
 npm install
-node server.js
-Make sure MongoDB is running locally or update your MongoDB URI in .env.
 
-💻 2. Run React Frontend
-bash
-Copy
-Edit
+Create .env file in server folder:
+MONGO_URI=your_mongodb_atlas_connection_string
+PORT=5000
+
+Start server:
+node app.js
+
+### 3. Build React Dashboard
 cd client
 npm install
-npm start
-Visit the dashboard at http://localhost:3000
-
-🏗️ 3. Build React App
-bash
-Copy
-Edit
-cd client
 npm run build
-This generates the optimized files in /client/build.
 
-🔌 4. Set up Chrome Extension
-Copy contents from client/build (like index.html, CSS, JS) into extension/ folder.
+Copy build to extension:
+copy /Y build\index.html ..\extension\index.html
+copy /Y build\static\css\* ..\extension\static\css\
+copy /Y build\static\js\* ..\extension\static\js\
 
-In Chrome:
-
-Go to chrome://extensions
-
-Turn on Developer Mode
-
-Click Load Unpacked
-
-Select the extension/ folder
-
-Click the extension icon in your browser to view charts.
-```
----
-
-🙋‍♀️ Author
-👩‍💻 Kashish Kumari
-
-📚 B.Tech CSE | Full-Stack Web Dev & DSA Learner
-
-🌐 MERN | Java | MongoDB | Chrome Extensions | React Charts
+### 4. Load Chrome Extension
+1. Open Chrome
+2. Go to chrome://extensions
+3. Enable Developer Mode
+4. Click Load unpacked
+5. Select the extension folder
 
 ---
 
-## 📸 Screenshots
+## 🌐 API Endpoints
 
-### 🔍 Chrome Extension
-![Home Page](Screenshot/in_google_extension.png)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/track | Save website usage |
+| GET | /api/today | Get today's data |
+| GET | /api/weekly | Get weekly data |
+| GET | /api/analytics | Get full analytics |
 
-### 🔍 Extension in React App
-![Home Page](Screenshot/in_react_app.png)
+---
+
+## 🎯 Productive Sites (No Limit)
+- GitHub, ChatGPT, LeetCode
+- HackerRank, GeeksForGeeks
+- Stack Overflow, Coursera, Udemy
+
+## ⚠️ Tracked Social Sites (Time Limited)
+- YouTube, Instagram, Facebook
+- Reddit, TikTok, Snapchat
+- Pinterest, Twitter/X
+
+---
+
+## 🔮 Future Improvements
+- User authentication
+- Mobile app
+- Export reports as PDF
+- Team productivity tracking
+- AI-powered recommendations
+
+---
+
+> 🚀 Made with ❤️ by Amrita Thakur — Internship Project 2026
